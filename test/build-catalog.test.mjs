@@ -1,3 +1,4 @@
+import {checkRevision} from '../src/check-revision.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -36,4 +37,13 @@ test('canonical edits preserve source-only and legal default policies',()=>{
     s=>{s.provider='stevenblack';s.default_enabled=true;s.counsel_status='not_reviewed';}]){
     const bad=structuredClone(canonical);change(bad.sources[0]);assert.throws(()=>validateCanonical(bad));
   }
+});
+
+test('reviewed definition edits need revision bumps and all removals need tombstones',()=>{
+  const changed=structuredClone(canonical);changed.sources[0].name='New display name';
+  assert.throws(()=>checkRevision(canonical,changed));changed.revision++;checkRevision(canonical,changed);
+  const removed=changed.sources.shift();assert.throws(()=>checkRevision(canonical,changed));
+  changed.withdrawn_sources.push(removed.id);checkRevision(canonical,changed);
+  const resurrected=structuredClone(canonical);resurrected.revision=changed.revision+1;
+  assert.throws(()=>checkRevision(changed,resurrected));
 });

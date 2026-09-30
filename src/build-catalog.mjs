@@ -32,7 +32,7 @@ export function buildCatalog(canonical, observations = {}, now = new Date()) {
     }
     return result;
   };
-  return {schema_version: 2, catalog_version, generated_at,
+  return {schema_version: 2, catalog_version, generated_at, catalog_definition_revision: approved.revision,
     sources: approved.sources.map(project), guardrails: approved.guardrails.map(project),
     withdrawn_sources: approved.withdrawn_sources};
 }

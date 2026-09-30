@@ -2,10 +2,11 @@
 // repository/URL override: a consumer cannot quietly redirect its source of truth.
 import {readFileSync, writeFileSync} from 'node:fs';
 const args=process.argv.slice(2), target=args[0];
-if(!target) throw new Error('Usage: sync-filter-catalog.mjs TARGET [--ref COMMIT_SHA | --check]');
-const check=args.includes('--check');
+const check=args.length===2 && args[1]==='--check';
+const adopt=args.length===3 && args[1]==='--ref';
+if(!target || (!check && !adopt)) throw new Error('Usage: sync-filter-catalog.mjs TARGET [--ref COMMIT_SHA | --check]');
 const lockPath=`${target}.source.json`;
-const ref=check?JSON.parse(readFileSync(lockPath)).commit:args[args.indexOf('--ref')+1];
+const ref=check?JSON.parse(readFileSync(lockPath)).commit:args[2];
 if(!/^[a-f0-9]{40}$/.test(ref??'')) throw new Error('An immutable 40-character commit SHA is required');
 const response=await fetch(`https://raw.githubusercontent.com/lavasecurity/lavasec-filters/${ref}/dist/blocklist-catalog.json`,
   {redirect:'error',signal:AbortSignal.timeout(30000)});

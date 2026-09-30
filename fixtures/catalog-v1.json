@@ -13,7 +13,7 @@
         "name": "Example",
         "category": "security",
         "risk_level": "low",
-        "default_enabled": true,
+        "default_enabled": false,
         "license_name": "Test",
         "attribution": "Fixture only",
         "project_url": "https://example.com/",

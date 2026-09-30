@@ -96,7 +96,7 @@ export function verifyCatalog(catalog, pins, {now = Math.floor(Date.now() / 1000
     requireThat(manifest.revision >= prior.revision, 'Catalog rollback');
     if (manifest.revision === prior.revision) {
       requireThat(sameInventory(manifest, prior), 'Conflicting inventory revision');
-      requireThat(manifest.issued_at >= prior.issued_at, 'Authorization renewal rollback');
+      requireThat(manifest.issued_at >= prior.issued_at && manifest.expires_at >= prior.expires_at, 'Authorization renewal rollback');
     }
     // Withdrawals are cumulative: an older retired ID cannot silently reappear later.
     requireThat(prior.withdrawn_sources.every(id => manifest.withdrawn_sources.includes(id)), 'Lost withdrawal');
@@ -109,6 +109,8 @@ export function verifyCatalog(catalog, pins, {now = Math.floor(Date.now() / 1000
 export function signCatalog(candidate, approved, privateKeyPEM, keyID,
   {now = Math.floor(Date.now() / 1000), validity = 7 * 86400, previous, pins, retiredKeys = {}} = {}) {
   requireThat(candidate.schema_version === 2 && validID(keyID), 'Invalid catalog/key');
+  requireThat([...candidate.sources, ...candidate.guardrails].every(source => source.default_enabled === false),
+    'Legacy selection flags must remain neutral');
   const policy = inventory(approved);
   requireThat(sameInventory({...candidate, revision: policy.revision,
     withdrawn_sources: candidate.withdrawn_sources ?? policy.withdrawn_sources}, policy), 'Candidate differs from approved inventory');

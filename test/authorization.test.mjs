@@ -7,7 +7,7 @@ const now = 1800000000;
 const {privateKey, publicKey} = generateKeyPairSync('ed25519');
 const pem = privateKey.export({format: 'pem', type: 'pkcs8'});
 const pins = {test: Buffer.from(publicKey.export({format: 'jwk'}).x, 'base64url').toString('base64')};
-const source = {id:'example', name:'Example', category:'security', risk_level:'low', default_enabled:true,
+const source = {id:'example', name:'Example', category:'security', risk_level:'low', default_enabled:false,
   license_name:'Test', attribution:'Fixture only', project_url:'https://example.com/',
   source_url:'https://example.com/domains.txt', redistribution_mode:'source_url_only', parse_format:'plain_domains',
   license_text_url:null, notice_url:null, version_id:'v1', entry_count:1, byte_size:12,
@@ -105,4 +105,22 @@ test('signer supplies approved withdrawals when the operational candidate omits 
  assert.doesNotThrow(()=>check(value,{previous:signed().catalog_authorization}));
  assert.throws(()=>signed({...candidate,sources:[],withdrawn_sources:[]},
   {revision:2,sources:[],guardrails:[],withdrawn_sources:['example']}));
+});
+
+
+test('same-revision renewal cannot shorten expiry even with an equal or newer issue time',()=>{
+ const prior=signed();
+ for(const issued of [now,now+1]){
+  const shortened=signed(candidate,approved,{now:issued,validity:86400});
+  assert.throws(()=>check(shortened,{now:now+1,previous:prior.catalog_authorization}));
+ }
+ assert.doesNotThrow(()=>check(prior,{previous:prior.catalog_authorization}));
+});
+
+
+test('signer rejects missing and non-neutral legacy selection flags',()=>{
+ for(const value of [undefined,true,'false']){
+  const c=copy(candidate);c.sources[0].default_enabled=value;
+  assert.throws(()=>signed(c));
+ }
 });

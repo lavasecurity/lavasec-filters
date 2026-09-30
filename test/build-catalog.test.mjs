@@ -3,7 +3,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {buildCatalog, clientIndex, validateCanonical} from '../src/build-catalog.mjs';
-const canonical = JSON.parse(readFileSync(new URL('../catalog/inventory.json', import.meta.url)));
+import {loadCanonical,assembleInventory} from '../src/inventory-source.mjs';
+const canonical=loadCanonical();
 test('canonical inventory alone defines all membership and policy', () => {
   const fake = {...canonical.sources[0], name:'publisher override', default_enabled:true,
     version_id:'observation', entry_count:42};
@@ -51,4 +52,12 @@ test('reviewed definition edits need revision bumps and all removals need tombst
 test('legacy selection hint is unsigned compatibility data and is never imported',()=>{
   const c=buildCatalog(canonical,{sources:[{...canonical.sources[0],default_enabled:true}]});
   assert(c.sources.every(s=>s.default_enabled===false));
+});
+
+test('simple list fields cannot be overridden by supporting metadata',()=>{
+  const list={id:'example',name:'Example',url:'https://example.com/list',category:'security'};
+  const index={revision:1,withdrawn_sources:[],lists:[list]};
+  assert.throws(()=>assembleInventory(index,{},[]));
+  assert.throws(()=>assembleInventory(index,{example:{source_url:'https://evil.example'}},[]));
+  assert.throws(()=>assembleInventory({...index,lists:[{...list,default_enabled:true}]},{example:{}},[]));
 });

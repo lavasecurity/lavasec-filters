@@ -1,0 +1,51 @@
+[
+  {
+    "id": "security",
+    "order": 10,
+    "label": "Security & Threat Intel",
+    "description": "Phishing, scam, malware, ransomware, and live threat-intelligence feeds.",
+    "icon": "shield"
+  },
+  {
+    "id": "multi_purpose",
+    "order": 15,
+    "label": "Multi-purpose",
+    "description": "All-in-one lists that block ads, trackers, malware, phishing, and more from a single feed.",
+    "icon": "square-stack"
+  },
+  {
+    "id": "ads_tracking",
+    "order": 20,
+    "label": "Ads & Trackers",
+    "description": "Dedicated advertising and cross-site tracking lists.",
+    "icon": "megaphone"
+  },
+  {
+    "id": "social",
+    "order": 30,
+    "label": "Social Media",
+    "description": "Social-network domains and their trackers.",
+    "icon": "bubbles"
+  },
+  {
+    "id": "nsfw",
+    "order": 40,
+    "label": "Adult Content",
+    "description": "Pornography and other adult-content domains.",
+    "icon": "eye-slash"
+  },
+  {
+    "id": "gambling",
+    "order": 50,
+    "label": "Gambling",
+    "description": "Online gambling, betting, and casino domains.",
+    "icon": "dice"
+  },
+  {
+    "id": "piracy",
+    "order": 60,
+    "label": "Piracy & Torrent",
+    "description": "Piracy portals and torrent trackers.",
+    "icon": "flag"
+  }
+]

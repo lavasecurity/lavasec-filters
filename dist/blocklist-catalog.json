@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_generated": "DO NOT EDIT — generated from lavasecurity/lavasec-filters/catalog/inventory.json",
+  "_generated": "DO NOT EDIT — generated from lavasecurity/lavasec-filters/catalog/lists.json",
   "categories": [
     {
       "id": "security",

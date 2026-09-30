@@ -1,7 +1,7 @@
 import {inventory} from './authorization.mjs';
 import {isDeepStrictEqual} from 'node:util';
 import {execFileSync} from 'node:child_process';
-import {readFileSync} from 'node:fs';
+import {loadCanonical} from './inventory-source.mjs';
 import {pathToFileURL} from 'node:url';
 
 export function checkRevision(previous, current) {
@@ -20,7 +20,7 @@ if(process.argv[1] && import.meta.url===pathToFileURL(process.argv[1]).href){
   const base=process.env.BASE_SHA;
   if(!/^[a-f0-9]{40}$/.test(base??'')) throw new Error('Expected immutable base SHA');
   // The initial migration has no base inventory; later authoring PRs always do.
-  const files=execFileSync('git',['ls-tree','--name-only',base,'catalog/inventory.json'],{encoding:'utf8'});
-  if(files.trim()) checkRevision(JSON.parse(execFileSync('git',['show',`${base}:catalog/inventory.json`],{encoding:'utf8'})),
-    JSON.parse(readFileSync('catalog/inventory.json')));
+  const files=execFileSync('git',['ls-tree','--name-only',base,'dist/inventory.json'],{encoding:'utf8'});
+  if(files.trim()) checkRevision(JSON.parse(execFileSync('git',['show',`${base}:dist/inventory.json`],{encoding:'utf8'})),
+    loadCanonical());
 }

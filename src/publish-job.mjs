@@ -1,4 +1,5 @@
 import {readFileSync, writeFileSync, mkdirSync, existsSync} from 'node:fs';
+import {loadCanonical} from './inventory-source.mjs';
 import {buildCatalog} from './build-catalog.mjs';
 import {signCatalog, MAX_BYTES} from './authorization.mjs';
 async function download(url, token) {
@@ -11,7 +12,7 @@ async function download(url, token) {
   return JSON.parse(Buffer.concat(chunks).toString('utf8'));
 }
 try {
-  const approved=JSON.parse(readFileSync('catalog/inventory.json'));
+  const approved=loadCanonical();
   const pins=JSON.parse(readFileSync('policy/public-keys.json'));
   const retiredKeys=existsSync('policy/retired-keys.json')?JSON.parse(readFileSync('policy/retired-keys.json')):{};
   const observations=await download(process.env.CATALOG_CANDIDATE_URL,process.env.CATALOG_CANDIDATE_TOKEN);

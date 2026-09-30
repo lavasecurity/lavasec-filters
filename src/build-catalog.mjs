@@ -43,7 +43,7 @@ export function buildCatalog(canonical, observations = {}, now = new Date()) {
 export function clientIndex(canonical) {
   validateCanonical(canonical);
   return {schema_version: 1,
-    _generated: 'DO NOT EDIT — generated from lavasecurity/lavasec-filters/catalog/inventory.json',
+    _generated: 'DO NOT EDIT — generated from lavasecurity/lavasec-filters/catalog/lists.json',
     categories: canonical.categories,
     sources: canonical.sources.map(s => ({id:s.id,name:s.name,provider:s.provider,category:s.category,
       license:s.license_name,license_text_url:s.license_text_url,source_url:s.source_url,

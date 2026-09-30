@@ -1,7 +1,9 @@
 # Lava filters
 
-`catalog/inventory.json` is the **only authoring source** for Lava's filter catalog:
-source URLs, membership, parsers, attribution, categories and withdrawals.
+`catalog/lists.json` is the **only list-definition authoring source** for Lava's filter catalog:
+stable IDs, names, URLs, categories and withdrawals. Supporting parser/license/attribution
+metadata lives in `catalog/source-metadata.json`; taxonomy lives in `catalog/categories.json`.
+Neither supporting file can override list identity. `dist/inventory.json` is generated.
 Platform recommendations/default selections live in iOS and Android, not this inventory.
 Provider list contents remain at their original URLs. User-added custom lists are not
 part of this catalog and need no Lava signature.
@@ -58,7 +60,7 @@ no guardrails), without platform default flags. Existing app onboarding presets 
 owned by each app. The docs repository is archived and its old YAML is historical. This supersedes operational
 source-table authoring paths; historical migrations are not ongoing catalog definitions.
 
-For local signing: `node src/cli.mjs sign candidate.json catalog/inventory.json KEY_ID
+For local signing: `node src/cli.mjs sign candidate.json dist/inventory.json KEY_ID
 policy/public-keys.json previous.json signed.json`, with `LAVA_CATALOG_PRIVATE_KEY_FILE`
 pointing to a protected PEM. Use `-` as previous only for deliberate first publication.
 Retired public pins can verify checkpoints but cannot authorize incoming catalogs.

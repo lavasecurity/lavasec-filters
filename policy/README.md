@@ -6,6 +6,7 @@ and committed here. No production inventory or key is inferred from a live API e
 The inventory has `revision` (positive safe integer), complete `sources` and `guardrails`
 definition arrays, and cumulative `withdrawn_sources`. See the fixture for field names.
 Changing definitions or withdrawals increments revision. Routine validity renewal does not.
+Record every removed source or guardrail ID in `withdrawn_sources`; omission alone is rejected.
 `public-keys.json` maps approved key IDs to raw 32-byte Ed25519 public keys in base64.
 Fixture keys must never appear in this file or app release pins.
 

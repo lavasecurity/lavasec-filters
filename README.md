@@ -30,6 +30,8 @@ and `guardrails`, and cumulative `withdrawn_sources`. Maximum validity is 31 day
 renews for seven days. A newer revision authorizes definition changes; same-revision renewals
 must preserve definitions/withdrawals. Clients retain a rollback checkpoint; clearing app
 storage resets local history, and offline phones cannot learn withdrawals immediately.
+Every source or guardrail removed from the previous inventory must be explicitly withdrawn;
+once withdrawn, that ID cannot be reused by a later revision.
 
 Definition fields are the closed `DEFINITION_FIELDS` list in source: IDs, labels, URLs,
 category/tier, default enablement, parser, redistribution and legal metadata. Hashes, counts,

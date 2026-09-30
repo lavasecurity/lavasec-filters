@@ -101,6 +101,9 @@ export function verifyCatalog(catalog, pins, {now = Math.floor(Date.now() / 1000
     }
     // Withdrawals are cumulative: an older retired ID cannot silently reappear later.
     requireThat(prior.withdrawn_sources.every(id => manifest.withdrawn_sources.includes(id)), 'Lost withdrawal');
+    const active = new Set([...manifest.sources, ...manifest.guardrails].map(source => source.id));
+    requireThat([...prior.sources, ...prior.guardrails].every(source => active.has(source.id) ||
+      manifest.withdrawn_sources.includes(source.id)), 'Removed source lacks withdrawal');
   }
   return manifest;
 }

@@ -73,6 +73,18 @@ test('case-colliding definitions and withdrawals fail',()=>{
  assert.throws(()=>signed({...candidate,sources:[source,{...source,id:'EXAMPLE'}]}, {...approved,sources:[source,{...source,id:'EXAMPLE'}]}));
  assert.throws(()=>signed({...candidate,withdrawn_sources:['Other','other']},{...approved,withdrawn_sources:['Other','other']}));
 });
+test('every removed source or guardrail needs an explicit withdrawal',()=>{
+ const empty={...candidate,sources:[]},emptyApproval={revision:2,sources:[],guardrails:[],withdrawn_sources:[]};
+ const guardrail={...source,category:'guardrail'};
+ const priorGuard=signed({...candidate,sources:[],guardrails:[guardrail]},
+  {...approved,sources:[],guardrails:definitions([guardrail],true)});
+ for(const prior of [signed(),priorGuard]) {
+  assert.throws(()=>check(signed(empty,emptyApproval),{previous:prior.catalog_authorization}));
+  assert.throws(()=>signed(empty,emptyApproval,{previous:prior.catalog_authorization,pins}));
+  assert.doesNotThrow(()=>check(signed(empty,{...emptyApproval,withdrawn_sources:['example']}),
+   {previous:prior.catalog_authorization}));
+ }
+});
 test('cross-language fixture verifies with its public test pin',()=>{
  const fixture=JSON.parse(readFileSync(new URL('../fixtures/catalog-v1.json',import.meta.url)));
  verifyCatalog(fixture.catalog,fixture.pins,{now:fixture.now});

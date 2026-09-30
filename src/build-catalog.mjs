@@ -2,6 +2,19 @@ import {inventory} from './authorization.mjs';
 
 export function validateCanonical(canonical) {
   const approved=inventory(canonical);
+  if(!Array.isArray(canonical.categories)) throw new Error('Missing category registry');
+  const categories=new Set();
+  for(const category of canonical.categories) {
+    if(!category || typeof category.id!=='string' || !/^[a-z][a-z0-9_]{0,127}$/.test(category.id) ||
+      categories.has(category.id) || !Number.isSafeInteger(category.order) ||
+      !['label','description','icon'].every(k=>typeof category[k]==='string' && category[k].length<=8192)) {
+      throw new Error('Invalid category registry');
+    }
+    categories.add(category.id);
+  }
+  for(const source of [...approved.sources,...approved.guardrails]) {
+    if(!categories.has(source.category)) throw new Error('Source category is not declared');
+  }
   for(const s of [...canonical.sources,...canonical.guardrails]) {
     if(s.redistribution_mode!=='source_url_only' ||
        Object.hasOwn(s,'default_enabled') ||
@@ -34,7 +47,7 @@ export function buildCatalog(canonical, observations = {}, now = new Date()) {
     }
     return result;
   };
-  return {schema_version: 2, catalog_version, generated_at, catalog_definition_revision: approved.revision,
+  return {schema_version: 2, catalog_version, generated_at,
     sources: approved.sources.map(project), guardrails: approved.guardrails.map(project),
     withdrawn_sources: approved.withdrawn_sources};
 }

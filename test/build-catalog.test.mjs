@@ -61,3 +61,10 @@ test('simple list fields cannot be overridden by supporting metadata',()=>{
   assert.throws(()=>assembleInventory(index,{example:{source_url:'https://evil.example'}},[]));
   assert.throws(()=>assembleInventory({...index,lists:[{...list,default_enabled:true}]},{example:{}},[]));
 });
+
+test('source categories must exist in a unique valid category registry',()=>{
+  for(const change of [c=>c.sources[0].category='typo',c=>c.categories=[],
+    c=>c.categories.push(c.categories[0]),c=>c.categories[0].order='first']) {
+    const changed=structuredClone(canonical);change(changed);assert.throws(()=>validateCanonical(changed));
+  }
+});

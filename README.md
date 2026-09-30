@@ -51,7 +51,8 @@ Signing and delivery remain disabled until real public pins, signing credentials
 repository/environment protections are commissioned. The test fixture key is never a
 production key. Review full history, PRs and artifacts before a public visibility change.
 The imported inventory preserves the public API catalog captured on 2026-09-30 (33 sources,
-no guardrails), including its defaults. This supersedes the former docs YAML and operational
+no guardrails), preserving existing app onboarding presets. StevenBlack remains in the Balanced preset;
+this resolves the old API metadata discrepancy without changing saved user selections. The docs repository is archived and its old YAML is historical. This supersedes operational
 source-table authoring paths; historical migrations are not ongoing catalog definitions.
 
 For local signing: `node src/cli.mjs sign candidate.json catalog/inventory.json KEY_ID

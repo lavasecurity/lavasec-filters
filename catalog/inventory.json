@@ -345,7 +345,7 @@
       "name": "StevenBlack Unified Hosts",
       "category": "multi_purpose",
       "risk_level": "normal",
-      "default_enabled": false,
+      "default_enabled": true,
       "license_name": "MIT",
       "attribution": "Steven Black",
       "project_url": "https://github.com/StevenBlack/hosts",

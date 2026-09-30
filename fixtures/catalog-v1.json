@@ -1,0 +1,48 @@
+{
+  "now": 1800000000,
+  "pins": {
+    "fixture-only": "LoKtNQeoPcKE2gr6AGpXUMQLAoq9Pf+KPYSuNIfXAYI="
+  },
+  "catalog": {
+    "schema_version": 2,
+    "catalog_version": "20270115T080000Z",
+    "generated_at": "2027-01-15T08:00:00Z",
+    "sources": [
+      {
+        "id": "example",
+        "name": "Example",
+        "category": "security",
+        "risk_level": "low",
+        "default_enabled": true,
+        "license_name": "Test",
+        "attribution": "Fixture only",
+        "project_url": "https://example.com/",
+        "source_url": "https://example.com/domains.txt",
+        "redistribution_mode": "source_url_only",
+        "parse_format": "plain_domains",
+        "license_text_url": null,
+        "notice_url": null,
+        "version_id": "v1",
+        "entry_count": 1,
+        "byte_size": 12,
+        "source_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "normalized_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "accepted_source_hashes": [
+          {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "status": "accepted"
+          }
+        ],
+        "published_at": "2027-01-15T08:00:00Z"
+      }
+    ],
+    "guardrails": [],
+    "withdrawn_sources": [],
+    "catalog_authorization": {
+      "format": 1,
+      "key_id": "fixture-only",
+      "payload": "eyJmb3JtYXQiOjEsInB1cnBvc2UiOiJsYXZhLWNhdGFsb2ctZGVmaW5pdGlvbnMiLCJrZXlfaWQiOiJmaXh0dXJlLW9ubHkiLCJyZXZpc2lvbiI6MSwic291cmNlcyI6W3siaWQiOiJleGFtcGxlIiwibmFtZSI6IkV4YW1wbGUiLCJjYXRlZ29yeSI6InNlY3VyaXR5Iiwicmlza19sZXZlbCI6ImxvdyIsImRlZmF1bHRfZW5hYmxlZCI6dHJ1ZSwibGljZW5zZV9uYW1lIjoiVGVzdCIsImF0dHJpYnV0aW9uIjoiRml4dHVyZSBvbmx5IiwicHJvamVjdF91cmwiOiJodHRwczovL2V4YW1wbGUuY29tLyIsInNvdXJjZV91cmwiOiJodHRwczovL2V4YW1wbGUuY29tL2RvbWFpbnMudHh0IiwicmVkaXN0cmlidXRpb25fbW9kZSI6InNvdXJjZV91cmxfb25seSIsInBhcnNlX2Zvcm1hdCI6InBsYWluX2RvbWFpbnMiLCJsaWNlbnNlX3RleHRfdXJsIjpudWxsLCJub3RpY2VfdXJsIjpudWxsfV0sImd1YXJkcmFpbHMiOltdLCJ3aXRoZHJhd25fc291cmNlcyI6W10sImlzc3VlZF9hdCI6MTgwMDAwMDAwMCwiZXhwaXJlc19hdCI6MTgwMDYwNDgwMH0=",
+      "signature": "d0dbaz6kIHivOsUIoZ4wYW92bKK85pqgLfqaMOaj6aBtRejEvvFWxbcsmRN7wPAZZcf85YtIFjPC3VpKA6IPDw=="
+    }
+  }
+}

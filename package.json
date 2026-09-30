@@ -1,0 +1,12 @@
+{
+  "name": "@lavasec/filters",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node src/generate.mjs --check && node --test test/*.test.mjs",
+    "generate": "node src/generate.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

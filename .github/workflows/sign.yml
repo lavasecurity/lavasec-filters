@@ -1,0 +1,47 @@
+name: Authorize catalog definitions
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: catalog-signing
+  cancel-in-progress: false
+jobs:
+  sign:
+    if: github.ref == 'refs/heads/main' && vars.CATALOG_SIGNING_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: catalog-signing
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+      - run: npm test
+      - name: Authorize only the independently approved inventory
+        run: node src/publish-job.mjs
+        env:
+          CATALOG_CANDIDATE_URL: ${{ vars.CATALOG_CANDIDATE_URL }}
+          CATALOG_CURRENT_URL: ${{ vars.CATALOG_CURRENT_URL }}
+          CATALOG_BOOTSTRAP: ${{ vars.CATALOG_BOOTSTRAP }}
+          CATALOG_SIGNING_KEY_ID: ${{ vars.CATALOG_SIGNING_KEY_ID }}
+          CATALOG_CANDIDATE_TOKEN: ${{ secrets.CATALOG_CANDIDATE_TOKEN }}
+          CATALOG_SIGNING_PRIVATE_KEY: ${{ secrets.CATALOG_SIGNING_PRIVATE_KEY }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: authorized-catalog
+          path: out/catalog.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Hand the artifact to the independent publisher
+        if: vars.CATALOG_DELIVERY_ENABLED == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.CATALOG_DISPATCH_TOKEN }}
+        run: >-
+          gh workflow run publish-signed-catalog.yml
+          --repo lavasecurity/lavasec-infra --ref main
+          --field signing_run_id="$GITHUB_RUN_ID"

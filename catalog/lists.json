@@ -1,0 +1,204 @@
+{
+  "revision": 1,
+  "withdrawn_sources": [],
+  "lists": [
+    {
+      "id": "blocklistproject-basic",
+      "name": "Block List Basic",
+      "url": "https://blocklistproject.github.io/Lists/basic.txt",
+      "category": "security"
+    },
+    {
+      "id": "blocklistproject-phishing",
+      "name": "Block List Project Phishing",
+      "url": "https://blocklistproject.github.io/Lists/phishing.txt",
+      "category": "security"
+    },
+    {
+      "id": "blocklistproject-ransomware",
+      "name": "Block List Project Ransomware",
+      "url": "https://blocklistproject.github.io/Lists/ransomware.txt",
+      "category": "security"
+    },
+    {
+      "id": "blocklistproject-scam",
+      "name": "Block List Project Scam",
+      "url": "https://blocklistproject.github.io/Lists/scam.txt",
+      "category": "security"
+    },
+    {
+      "id": "hagezi-tif-mini",
+      "name": "HaGeZi Threat Intelligence Feed Mini",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/tif.mini-onlydomains.txt",
+      "category": "security"
+    },
+    {
+      "id": "phishing-database-active",
+      "name": "Phishing.Database Active Domains",
+      "url": "https://raw.githubusercontent.com/Phishing-Database/Phishing.Database/master/phishing-domains-ACTIVE.txt",
+      "category": "security"
+    },
+    {
+      "id": "1hosts-lite",
+      "name": "1Hosts Lite",
+      "url": "https://raw.githubusercontent.com/badmojr/1Hosts/master/Lite/adblock.txt",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "adguard-dns-filter",
+      "name": "AdGuard DNS Filter",
+      "url": "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "hagezi-multi-light",
+      "name": "HaGeZi Multi Light",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/light-onlydomains.txt",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "hagezi-multi-normal",
+      "name": "HaGeZi Multi Normal",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/multi-onlydomains.txt",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "hagezi-multi-pro",
+      "name": "HaGeZi Multi PRO",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/pro-onlydomains.txt",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "hagezi-multi-pro-mini",
+      "name": "HaGeZi Multi PRO mini",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/pro.mini-onlydomains.txt",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "hagezi-multi-pro-plus-mini",
+      "name": "HaGeZi Multi PRO++ mini",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/pro.plus.mini-onlydomains.txt",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "hagezi-multi-ultimate-mini",
+      "name": "HaGeZi Multi Ultimate mini",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/ultimate.mini-onlydomains.txt",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "oisd-big",
+      "name": "OISD Big",
+      "url": "https://raw.githubusercontent.com/sjhgvr/oisd/main/oisd_big.txt",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "oisd-small",
+      "name": "OISD Small",
+      "url": "https://raw.githubusercontent.com/sjhgvr/oisd/main/oisd_small.txt",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "stevenblack-unified",
+      "name": "StevenBlack Unified Hosts",
+      "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
+      "category": "multi_purpose"
+    },
+    {
+      "id": "blocklistproject-ads",
+      "name": "Block List Ads",
+      "url": "https://blocklistproject.github.io/Lists/ads.txt",
+      "category": "ads_tracking"
+    },
+    {
+      "id": "blocklistproject-tracking",
+      "name": "Block List Tracking",
+      "url": "https://blocklistproject.github.io/Lists/tracking.txt",
+      "category": "ads_tracking"
+    },
+    {
+      "id": "blocklistproject-facebook",
+      "name": "Block List Facebook",
+      "url": "https://blocklistproject.github.io/Lists/facebook.txt",
+      "category": "social"
+    },
+    {
+      "id": "blocklistproject-tiktok",
+      "name": "Block List TikTok",
+      "url": "https://blocklistproject.github.io/Lists/tiktok.txt",
+      "category": "social"
+    },
+    {
+      "id": "hagezi-social",
+      "name": "HaGeZi Social Networks",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/social-onlydomains.txt",
+      "category": "social"
+    },
+    {
+      "id": "stevenblack-social",
+      "name": "StevenBlack Social",
+      "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/social/hosts",
+      "category": "social"
+    },
+    {
+      "id": "hagezi-nsfw",
+      "name": "HaGeZi NSFW",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/nsfw-onlydomains.txt",
+      "category": "nsfw"
+    },
+    {
+      "id": "oisd-nsfw",
+      "name": "OISD NSFW",
+      "url": "https://raw.githubusercontent.com/sjhgvr/oisd/main/oisd_nsfw.txt",
+      "category": "nsfw"
+    },
+    {
+      "id": "oisd-nsfw-small",
+      "name": "OISD NSFW Small",
+      "url": "https://raw.githubusercontent.com/sjhgvr/oisd/main/oisd_nsfw_small.txt",
+      "category": "nsfw"
+    },
+    {
+      "id": "stevenblack-porn",
+      "name": "StevenBlack Adult",
+      "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts",
+      "category": "nsfw"
+    },
+    {
+      "id": "blocklistproject-gambling",
+      "name": "Block List Gambling",
+      "url": "https://blocklistproject.github.io/Lists/gambling.txt",
+      "category": "gambling"
+    },
+    {
+      "id": "hagezi-gambling",
+      "name": "HaGeZi Gambling",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/gambling-onlydomains.txt",
+      "category": "gambling"
+    },
+    {
+      "id": "stevenblack-gambling",
+      "name": "StevenBlack Gambling",
+      "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling/hosts",
+      "category": "gambling"
+    },
+    {
+      "id": "blocklistproject-piracy",
+      "name": "Block List Piracy",
+      "url": "https://blocklistproject.github.io/Lists/piracy.txt",
+      "category": "piracy"
+    },
+    {
+      "id": "blocklistproject-torrent",
+      "name": "Block List Torrent",
+      "url": "https://blocklistproject.github.io/Lists/torrent.txt",
+      "category": "piracy"
+    },
+    {
+      "id": "hagezi-anti-piracy",
+      "name": "HaGeZi Anti-Piracy",
+      "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/anti.piracy-onlydomains.txt",
+      "category": "piracy"
+    }
+  ]
+}

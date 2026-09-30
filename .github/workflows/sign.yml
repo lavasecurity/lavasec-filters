@@ -11,7 +11,7 @@ concurrency:
 jobs:
   sign:
     if: github.ref == 'refs/heads/main' && vars.CATALOG_SIGNING_ENABLED == 'true'
-    runs-on: ubicloud-standard-2
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     environment: catalog-signing
     steps:

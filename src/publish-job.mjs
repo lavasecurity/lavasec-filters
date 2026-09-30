@@ -1,4 +1,5 @@
 import {readFileSync, writeFileSync, mkdirSync, existsSync} from 'node:fs';
+import {buildCatalog} from './build-catalog.mjs';
 import {signCatalog, MAX_BYTES} from './authorization.mjs';
 async function download(url, token) {
   if (!url || new URL(url).protocol !== 'https:') throw new Error('Configure an HTTPS catalog endpoint');
@@ -10,10 +11,11 @@ async function download(url, token) {
   return JSON.parse(Buffer.concat(chunks).toString('utf8'));
 }
 try {
-  const approved=JSON.parse(readFileSync('policy/approved-inventory.json'));
+  const approved=JSON.parse(readFileSync('catalog/inventory.json'));
   const pins=JSON.parse(readFileSync('policy/public-keys.json'));
   const retiredKeys=existsSync('policy/retired-keys.json')?JSON.parse(readFileSync('policy/retired-keys.json')):{};
-  const candidate=await download(process.env.CATALOG_CANDIDATE_URL,process.env.CATALOG_CANDIDATE_TOKEN);
+  const observations=await download(process.env.CATALOG_CANDIDATE_URL,process.env.CATALOG_CANDIDATE_TOKEN);
+  const candidate=buildCatalog(approved,observations);
   // Bootstrap is an explicit commissioning choice, never an automatic reaction to a failed read.
   const previous=process.env.CATALOG_BOOTSTRAP==='true'?undefined:
     (await download(process.env.CATALOG_CURRENT_URL)).catalog_authorization;

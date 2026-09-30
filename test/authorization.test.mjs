@@ -39,7 +39,7 @@ test('missing, unknown, malformed and tampered signatures fail',()=>{
  const value=copy(signed()); value.catalog_authorization.format=2;assert.throws(()=>check(value));
 });
 test('every source policy field is bound, including membership and tier',()=>{
- for(const field of ['source_url','parse_format','default_enabled','redistribution_mode','name','license_name']){
+ for(const field of ['source_url','parse_format','redistribution_mode','name','license_name']){
   const value=copy(signed()); value.sources[0][field]=field==='default_enabled'?false:field==='source_url'?'https://attacker.example/list':'changed';assert.throws(()=>check(value),field);
  }
  for(const mutate of [c=>c.sources.pop(),c=>c.sources.push({...source,id:'extra'}),c=>{c.guardrails=c.sources;c.sources=[];}]){

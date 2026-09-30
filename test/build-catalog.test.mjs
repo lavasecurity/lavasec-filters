@@ -25,16 +25,16 @@ test('client index is a generated projection of the same canonical definitions',
   const result=clientIndex(canonical);
   for (const [i,s] of result.sources.entries()) {
     assert.equal(s.source_url,canonical.sources[i].source_url);
-    assert.equal(s.default_enabled,canonical.sources[i].default_enabled);
+    assert(!Object.hasOwn(s,'default_enabled'));
     assert.equal(s.license,canonical.sources[i].license_name);
   }
   assert(result.sources.every(s=>s.redistribution_mode==='source_url_only'));
-  assert(result.sources.filter(s=>s.license.startsWith('GPL')).every(s=>!s.default_enabled));
+  assert(!JSON.stringify(canonical).includes('default_enabled'));
 });
 
 test('canonical edits preserve source-only and legal default policies',()=>{
-  for (const change of [s=>s.redistribution_mode='mirror',s=>{s.license_name='GPL-3.0';s.default_enabled=true;},
-    s=>{s.provider='stevenblack';s.default_enabled=true;s.counsel_status='not_reviewed';}]){
+  for (const change of [s=>s.redistribution_mode='mirror',s=>s.default_enabled=true,
+    s=>{s.license_name='GPL-3.0';s.license_text_url=null;}]){
     const bad=structuredClone(canonical);change(bad.sources[0]);assert.throws(()=>validateCanonical(bad));
   }
 });
@@ -46,4 +46,9 @@ test('reviewed definition edits need revision bumps and all removals need tombst
   changed.withdrawn_sources.push(removed.id);checkRevision(canonical,changed);
   const resurrected=structuredClone(canonical);resurrected.revision=changed.revision+1;
   assert.throws(()=>checkRevision(changed,resurrected));
+});
+
+test('legacy selection hint is unsigned compatibility data and is never imported',()=>{
+  const c=buildCatalog(canonical,{sources:[{...canonical.sources[0],default_enabled:true}]});
+  assert(c.sources.every(s=>s.default_enabled===false));
 });

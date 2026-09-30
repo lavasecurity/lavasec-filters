@@ -1,7 +1,8 @@
 # Lava filters
 
 `catalog/inventory.json` is the **only authoring source** for Lava's filter catalog:
-source URLs, membership, defaults, parsers, attribution, categories and withdrawals.
+source URLs, membership, parsers, attribution, categories and withdrawals.
+Platform recommendations/default selections live in iOS and Android, not this inventory.
 Provider list contents remain at their original URLs. User-added custom lists are not
 part of this catalog and need no Lava signature.
 
@@ -28,7 +29,9 @@ match. Missing observations do not remove a source. Only the signed artifact is 
 Ed25519 signs `Lava catalog definitions v1\n` followed by the exact payload bytes.
 Schema-2 documents retain their existing fields and add `catalog_authorization` and
 `withdrawn_sources`. Old readers ignore these additions. The payload covers definitions,
-membership, withdrawals, revision and validity. Hashes/counts/provider versions remain
+membership, withdrawals, revision and validity. A neutral `default_enabled: false` remains
+in schema-2 delivery solely for old decoders; it is unsigned compatibility data, never
+selection policy. The generated app index omits it entirely. Hashes/counts/provider versions remain
 advisory; ordinary provider updates are not content approval. Existing strict guardrail
 hash checks are not strengthened by this definition-only signature. No guardrails are
 currently included. Custom lists remain outside this signing requirement.
@@ -51,8 +54,8 @@ Signing and delivery remain disabled until real public pins, signing credentials
 repository/environment protections are commissioned. The test fixture key is never a
 production key. Review full history, PRs and artifacts before a public visibility change.
 The imported inventory preserves the public API catalog captured on 2026-09-30 (33 sources,
-no guardrails), preserving existing app onboarding presets. StevenBlack remains in the Balanced preset;
-this resolves the old API metadata discrepancy without changing saved user selections. The docs repository is archived and its old YAML is historical. This supersedes operational
+no guardrails), without platform default flags. Existing app onboarding presets and saved selections are
+owned by each app. The docs repository is archived and its old YAML is historical. This supersedes operational
 source-table authoring paths; historical migrations are not ongoing catalog definitions.
 
 For local signing: `node src/cli.mjs sign candidate.json catalog/inventory.json KEY_ID

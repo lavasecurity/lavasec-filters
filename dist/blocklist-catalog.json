@@ -65,7 +65,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": true,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     },
@@ -81,7 +80,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     },
@@ -97,7 +95,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "small",
       "counsel_status": "not_reviewed"
     },
@@ -113,7 +110,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     },
@@ -129,7 +125,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": false,
       "size_hint": "small",
       "counsel_status": "not_reviewed"
     },
@@ -145,7 +140,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "large",
       "counsel_status": "not_reviewed"
     },
@@ -161,7 +155,6 @@
       "parse_format": "adblock",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "required"
     },
@@ -177,7 +170,6 @@
       "parse_format": "adblock",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "required"
     },
@@ -193,7 +185,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     },
@@ -209,7 +200,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": false,
       "size_hint": "large",
       "counsel_status": "not_reviewed"
     },
@@ -225,7 +215,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "large",
       "counsel_status": "not_reviewed"
     },
@@ -241,7 +230,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     },
@@ -257,7 +245,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     },
@@ -273,7 +260,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "aggressive",
-      "default_enabled": false,
       "size_hint": "large",
       "counsel_status": "not_reviewed"
     },
@@ -289,7 +275,6 @@
       "parse_format": "adblock",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "large",
       "counsel_status": "not_reviewed"
     },
@@ -305,7 +290,6 @@
       "parse_format": "adblock",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": false,
       "size_hint": "small",
       "counsel_status": "not_reviewed"
     },
@@ -321,7 +305,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": true,
       "size_hint": "medium",
       "counsel_status": "approved"
     },
@@ -337,7 +320,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     },
@@ -353,7 +335,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "normal",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     },
@@ -369,7 +350,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "small",
       "counsel_status": "not_reviewed"
     },
@@ -385,7 +365,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "small",
       "counsel_status": "not_reviewed"
     },
@@ -401,7 +380,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "small",
       "counsel_status": "not_reviewed"
     },
@@ -417,7 +395,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "required"
     },
@@ -433,7 +410,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "aggressive",
-      "default_enabled": false,
       "size_hint": "large",
       "counsel_status": "not_reviewed"
     },
@@ -449,7 +425,6 @@
       "parse_format": "adblock",
       "redistribution_mode": "source_url_only",
       "warning_level": "aggressive",
-      "default_enabled": false,
       "size_hint": "large",
       "counsel_status": "not_reviewed"
     },
@@ -465,7 +440,6 @@
       "parse_format": "adblock",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     },
@@ -481,7 +455,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "aggressive",
-      "default_enabled": false,
       "size_hint": "large",
       "counsel_status": "required"
     },
@@ -497,7 +470,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "small",
       "counsel_status": "not_reviewed"
     },
@@ -513,7 +485,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     },
@@ -529,7 +500,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "required"
     },
@@ -545,7 +515,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "small",
       "counsel_status": "not_reviewed"
     },
@@ -561,7 +530,6 @@
       "parse_format": "hosts",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "small",
       "counsel_status": "not_reviewed"
     },
@@ -577,7 +545,6 @@
       "parse_format": "domain_list",
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
-      "default_enabled": false,
       "size_hint": "medium",
       "counsel_status": "not_reviewed"
     }

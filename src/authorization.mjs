@@ -4,7 +4,7 @@ import {isDeepStrictEqual} from 'node:util';
 export const CONTEXT = Buffer.from('Lava catalog definitions v1\n');
 export const MAX_BYTES = 8 * 1024 * 1024;
 export const MAX_VALIDITY = 31 * 86400;
-export const DEFINITION_FIELDS = ['id', 'name', 'category', 'risk_level', 'default_enabled',
+export const DEFINITION_FIELDS = ['id', 'name', 'category', 'risk_level',
   'license_name', 'attribution', 'project_url', 'source_url', 'redistribution_mode',
   'parse_format', 'license_text_url', 'notice_url'];
 const OPTIONAL = new Set(['license_text_url', 'notice_url']);
@@ -25,8 +25,7 @@ export function definitions(entries, guardrail = false) {
     const definition = {};
     for (const field of DEFINITION_FIELDS) {
       const value = entry[field] ?? (OPTIONAL.has(field) ? null : undefined);
-      if (field === 'default_enabled') requireThat(typeof value === 'boolean', 'Invalid default policy');
-      else if (!OPTIONAL.has(field) || value !== null)
+      if (!OPTIONAL.has(field) || value !== null)
         requireThat(typeof value === 'string' && value.length <= 8192, `Invalid definition field: ${field}`);
       definition[field] = value;
     }

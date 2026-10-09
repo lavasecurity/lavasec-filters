@@ -201,9 +201,9 @@
       "category": "piracy"
     },
     {
-      "id": "stevenblack-fakenews",
-      "name": "StevenBlack Fake News (Legacy)",
-      "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-only/hosts",
+      "id": "ut1-fakenews",
+      "name": "UT1 Fake News",
+      "url": "https://raw.githubusercontent.com/olbat/ut1-blacklists/master/blacklists/fakenews/domains",
       "category": "fake_news"
     }
   ]

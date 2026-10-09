@@ -67,14 +67,24 @@ Retired public pins can verify checkpoints but cannot authorize incoming catalog
 
 ## Fake-news coverage
 
-`stevenblack-fakenews` uses StevenBlack's standalone `fakenews-only` hosts file,
-which does not include the unified ads/malware base. It is labeled **Legacy** and
-has an advanced warning: its original `marktron/fakenews` feed is deprecated and
-StevenBlack pauses automatic ingestion from it. Regenerated file dates do not
-establish fresh domain curation. StevenBlack still accepts corrections through
-its issue tracker. Membership reflects the upstream publisher's judgments.
+`ut1-fakenews` uses the dedicated `fakenews/domains` category published by
+Université Toulouse Capitole and mirrored daily by `olbat/ut1-blacklists`.
+The plain domain feed excludes the university's other categories. Membership
+reflects the upstream publisher's classification; it is an advanced, opt-in
+list and stays outside app onboarding recommendations.
 
-The list is source-URL-only, has no counsel clearance, and must stay outside app
-onboarding recommendations. Its MIT attribution and original feed notice are
-recorded in source metadata. HaGeZi's `Fake` feed concerns scams and fake sites
-and is not offered as a fake-news list.
+The upstream data license is **CC BY-SA 4.0**, including commercial use with
+attribution and share-alike obligations for redistributed adaptations. The
+catalog records attribution, license and the university's notice, links to
+provider content without mirroring it, and does not claim counsel clearance.
+Keep source attribution and license information available to users.
+
+At verification on 2026-10-10, the mirror's 1,118 entries matched the university's
+current category archive byte for byte. The last category change was 2026-07-13
+(24 domain additions); daily archive/mirror timestamps alone are not curation
+activity. Two upstream entries contain underscores and are rejected by strict
+hostname parsers. The university prioritizes maintenance of its adult category;
+fake-news changes are less frequent. Report classification corrections upstream.
+
+HaGeZi's `Fake` feed concerns scams and fake sites rather than fake news. The
+legacy `marktron/fakenews` feed is deprecated and is not included.

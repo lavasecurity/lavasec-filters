@@ -1,5 +1,5 @@
 {
-  "revision": 1,
+  "revision": 2,
   "withdrawn_sources": [],
   "lists": [
     {
@@ -199,6 +199,12 @@
       "name": "HaGeZi Anti-Piracy",
       "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/anti.piracy-onlydomains.txt",
       "category": "piracy"
+    },
+    {
+      "id": "stevenblack-fakenews",
+      "name": "StevenBlack Fake News (Legacy)",
+      "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-only/hosts",
+      "category": "fake_news"
     }
   ]
 }

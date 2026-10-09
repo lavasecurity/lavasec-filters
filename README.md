@@ -64,3 +64,17 @@ For local signing: `node src/cli.mjs sign candidate.json dist/inventory.json KEY
 policy/public-keys.json previous.json signed.json`, with `LAVA_CATALOG_PRIVATE_KEY_FILE`
 pointing to a protected PEM. Use `-` as previous only for deliberate first publication.
 Retired public pins can verify checkpoints but cannot authorize incoming catalogs.
+
+## Fake-news coverage
+
+`stevenblack-fakenews` uses StevenBlack's standalone `fakenews-only` hosts file,
+which does not include the unified ads/malware base. It is labeled **Legacy** and
+has an advanced warning: its original `marktron/fakenews` feed is deprecated and
+StevenBlack pauses automatic ingestion from it. Regenerated file dates do not
+establish fresh domain curation. StevenBlack still accepts corrections through
+its issue tracker. Membership reflects the upstream publisher's judgments.
+
+The list is source-URL-only, has no counsel clearance, and must stay outside app
+onboarding recommendations. Its MIT attribution and original feed notice are
+recorded in source metadata. HaGeZi's `Fake` feed concerns scams and fake sites
+and is not offered as a fake-news list.

@@ -1,5 +1,5 @@
 {
-  "revision": 1,
+  "revision": 2,
   "withdrawn_sources": [],
   "categories": [
     {
@@ -50,6 +50,13 @@
       "label": "Piracy & Torrent",
       "description": "Piracy portals and torrent trackers.",
       "icon": "flag"
+    },
+    {
+      "id": "fake_news",
+      "order": 70,
+      "label": "Fake News",
+      "description": "Publisher-curated domains associated with clickbait, hoaxes, propaganda, and disinformation.",
+      "icon": "newspaper"
     }
   ],
   "sources": [
@@ -613,6 +620,23 @@
       "name": "HaGeZi Anti-Piracy",
       "source_url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/anti.piracy-onlydomains.txt",
       "category": "piracy"
+    },
+    {
+      "risk_level": "advanced",
+      "license_name": "MIT",
+      "attribution": "Steven Black; marktron/fakenews",
+      "project_url": "https://github.com/StevenBlack/hosts",
+      "redistribution_mode": "source_url_only",
+      "parse_format": "hosts",
+      "license_text_url": "https://raw.githubusercontent.com/marktron/fakenews/master/LICENSE",
+      "notice_url": "https://github.com/marktron/fakenews/blob/master/README.md",
+      "provider": "stevenblack",
+      "size_hint": "small",
+      "counsel_status": "not_reviewed",
+      "id": "stevenblack-fakenews",
+      "name": "StevenBlack Fake News (Legacy)",
+      "source_url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-only/hosts",
+      "category": "fake_news"
     }
   ],
   "guardrails": []

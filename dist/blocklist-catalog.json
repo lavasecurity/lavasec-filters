@@ -50,6 +50,13 @@
       "label": "Piracy & Torrent",
       "description": "Piracy portals and torrent trackers.",
       "icon": "flag"
+    },
+    {
+      "id": "fake_news",
+      "order": 70,
+      "label": "Fake News",
+      "description": "Publisher-curated domains associated with clickbait, hoaxes, propaganda, and disinformation.",
+      "icon": "newspaper"
     }
   ],
   "sources": [
@@ -546,6 +553,21 @@
       "redistribution_mode": "source_url_only",
       "warning_level": "advanced",
       "size_hint": "medium",
+      "counsel_status": "not_reviewed"
+    },
+    {
+      "id": "stevenblack-fakenews",
+      "name": "StevenBlack Fake News (Legacy)",
+      "provider": "stevenblack",
+      "category": "fake_news",
+      "license": "MIT",
+      "license_text_url": "https://raw.githubusercontent.com/marktron/fakenews/master/LICENSE",
+      "source_url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-only/hosts",
+      "project_url": "https://github.com/StevenBlack/hosts",
+      "parse_format": "hosts",
+      "redistribution_mode": "source_url_only",
+      "warning_level": "advanced",
+      "size_hint": "small",
       "counsel_status": "not_reviewed"
     }
   ]

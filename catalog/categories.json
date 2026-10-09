@@ -47,5 +47,12 @@
     "label": "Piracy & Torrent",
     "description": "Piracy portals and torrent trackers.",
     "icon": "flag"
+  },
+  {
+    "id": "fake_news",
+    "order": 70,
+    "label": "Fake News",
+    "description": "Publisher-curated domains associated with clickbait, hoaxes, propaganda, and disinformation.",
+    "icon": "newspaper"
   }
 ]

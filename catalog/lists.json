@@ -1,5 +1,5 @@
 {
-  "revision": 1,
+  "revision": 2,
   "withdrawn_sources": [],
   "lists": [
     {
@@ -199,6 +199,12 @@
       "name": "HaGeZi Anti-Piracy",
       "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@37522026.221.30748/wildcard/anti.piracy-onlydomains.txt",
       "category": "piracy"
+    },
+    {
+      "id": "ut1-fakenews",
+      "name": "UT1 Fake News",
+      "url": "https://raw.githubusercontent.com/olbat/ut1-blacklists/master/blacklists/fakenews/domains",
+      "category": "fake_news"
     }
   ]
 }

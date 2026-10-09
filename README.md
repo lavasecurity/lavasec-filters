@@ -64,3 +64,27 @@ For local signing: `node src/cli.mjs sign candidate.json dist/inventory.json KEY
 policy/public-keys.json previous.json signed.json`, with `LAVA_CATALOG_PRIVATE_KEY_FILE`
 pointing to a protected PEM. Use `-` as previous only for deliberate first publication.
 Retired public pins can verify checkpoints but cannot authorize incoming catalogs.
+
+## Fake-news coverage
+
+`ut1-fakenews` uses the dedicated `fakenews/domains` category published by
+Université Toulouse Capitole and mirrored daily by `olbat/ut1-blacklists`.
+The plain domain feed excludes the university's other categories. Membership
+reflects the upstream publisher's classification; it is an advanced, opt-in
+list and stays outside app onboarding recommendations.
+
+The upstream data license is **CC BY-SA 4.0**, including commercial use with
+attribution and share-alike obligations for redistributed adaptations. The
+catalog records attribution, license and the university's notice, links to
+provider content without mirroring it, and does not claim counsel clearance.
+Keep source attribution and license information available to users.
+
+At verification on 2026-10-10, the mirror's 1,118 entries matched the university's
+current category archive byte for byte. The last category change was 2026-07-13
+(24 domain additions); daily archive/mirror timestamps alone are not curation
+activity. Two upstream entries contain underscores and are rejected by strict
+hostname parsers. The university prioritizes maintenance of its adult category;
+fake-news changes are less frequent. Report classification corrections upstream.
+
+HaGeZi's `Fake` feed concerns scams and fake sites rather than fake news. The
+legacy `marktron/fakenews` feed is deprecated and is not included.
